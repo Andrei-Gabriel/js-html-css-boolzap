@@ -3,4 +3,14 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 100%;
+    font-family: 'Lato', sans-serif;
+}
+body{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#009688+15,d7dbd6+15 */
+    background: rgb(0,150,136); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(0,150,136,1) 15%, rgba(215,219,214,1) 15%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,150,136,1) 15%,rgba(215,219,214,1) 15%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,150,136,1) 15%,rgba(215,219,214,1) 15%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009688', endColorstr='#d7dbd6',GradientType=0 ); /* IE6-9 */
+    height: 100vh;
 }
