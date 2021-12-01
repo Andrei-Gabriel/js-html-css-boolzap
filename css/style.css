@@ -26,7 +26,6 @@ body{
     .aside{
         width: 40%;
         height: 100%;
-        border-right: 1px solid lightslategray;
     }
         .aside > div:not(.contatti),
         .main > div:not(.chat),
@@ -41,6 +40,7 @@ body{
             width: 100%;
             background-color: #eaeaea;
             padding: 5px;
+            border-right: 1px solid lightslategray;
         }
             .user-info, .user-info > img,
             .contatto-info, .contatto-info > img{
@@ -88,20 +88,57 @@ body{
         .search-bar{
             height: 40px;
             width: 100%;
-            background-color: darkgreen;
+            padding: 5px;
+            background-color: #fafafa;
         }
+            .search-bar > i{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20%;
+                height: 100%;
+                color: #b1b1b1;
+                background-color: #fff;
+                border: 1px solid lightslategray;
+                border-right: none;
+                border-radius: 3px 0px 0px 3px;
+                cursor: pointer;
+            }
+            .search-bar > input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                border: 1px solid lightslategray;
+                border-radius: 0px 3px 3px 0px;
+                padding-left: 5px;
+                font-size: 14px;
+            }
         .contatti{
             height: calc(100% - 65px - 70px - 40px);
+            /* max-height: calc(100% - 65px - 70px - 40px); */
+            overflow-y: scroll;
             width: 100%;
-            background-color: darkseagreen;
+            background-color: #fff;
         }
+            .contatto{
+                display: flex;
+                align-items: flex-start;
+                height: 70px;
+                width: 100%;
+                padding: 7px;
+                background-color: #e9ebeb;
+            }
+                .contatto > img{
+                    height: 100%;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
 
     .main{
         width: 60%;
         height: 100%;
-        background-color: rgb(214, 131, 71);
     }
-        .contatto{
+        .contatto-selezionato{
             justify-content: space-between;
             height: 65px;
             width: 100%;
@@ -118,10 +155,32 @@ body{
                     color: #b1b1b1;
                 }
         .messaggio{
-            height: 70px;
+            height: 50px;
             width: 100%;
-            background-color: deeppink;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            background-color: #f3eeea;
         }
-        .chat{
-            height: calc(100% - 70px - 65px)
+            .messaggio > input{
+                width: 80%;
+                height: 100%;
+                border: none;
+                border: 1px solid lightslategray;
+                border-radius: 3px; 
+                padding-left: 5px;
+            }
+            .messaggio > i{
+                width: 10%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #6b7376;
+            }
+        .screen-chat{
+            height: calc(100% - 50px - 65px);
+            width: 100%;
+            overflow-y: scroll;
+            background-image: url("../img/mine.jpg");
         }

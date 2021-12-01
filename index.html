@@ -51,16 +51,21 @@
 
             <!-- Inizio search-bar -->
             <div class="search-bar">
-
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
             <!-- Inizio contatti -->
             <div class="contatti">
-
+                <div class="contatto"
+                     v-for="(elem, index) in contacts">
+                    <img :src="`img/avatar${contacts[index].avatar}.jpg`">
+                    <span>{{contacts[index].name}}</span>
+                </div>
             </div>
         </div>
         <div class="main">
-            <div class="contatto">
+            <div class="contatto-selezionato">
                 <div class="contatto-info">
                     <img src="img/avatar_1.jpg">
                     <div class="c-info-text">
@@ -74,11 +79,13 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
             </div>
-            <div class="chat">
+            <div class="screen-chat">
 
             </div>
             <div class="messaggio">
-
+                <i class="far fa-smile"></i>
+                <input type="text" placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone"></i>
             </div>
         </div>
     </div>
