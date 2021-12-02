@@ -72,7 +72,7 @@
                     <img :src="`img/avatar${contacts[contactsIndex].avatar}.jpg`">
                     <div class="c-info-text">
                         <span>{{contacts[contactsIndex].name}}</span>
-                        <span class="last-access">Ultimo accesso oggi alle {{contacts[contactsIndex].messages[lastLog(contactsIndex)].date}}</span>
+                        <span class="last-access">Ultimo accesso oggi alle {{lastLog(contactsIndex)}}</span>
                     </div>
                 </div>
                 <div class="contatto-icons">
@@ -91,7 +91,10 @@
             </div>
             <div class="scrittura">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" 
+                       placeholder="Scrivi un messaggio" 
+                       v-model="inputText"
+                       @keyup.enter="addMex(contactsIndex)">
                 <i class="fas fa-microphone"></i>
             </div>
         </div>
@@ -99,6 +102,7 @@
 
     <!-- Script VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <!-- Script JS -->
     <script src="js/contacts.js"></script>
 </body>

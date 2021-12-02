@@ -102,15 +102,32 @@ const app = new Vue({
         //     }, q. messages > 1
         // ],
         contactsIndex: 0,
+        inputText: "",
     },
     methods: {
-        lastLog: function(i){
-            return this.contacts[i].messages.length - 1;
-            // Serve per estrarre l'ultimo messaggio ricevuto (Dovrebbe essere corretto perché in ogni caso l'ultimo messaggio sarà ricevuto. Quindi l'ora dell'ultimo messaggio ricevuto == ~ ultimo accesso del contatto)
+        lastLog: function(j){
+            for(let i = this.contacts[j].messages.length - 1; i >= 0; i--){
+                if(this.contacts[j].messages[i].status == "received"){
+                    return this.contacts[j].messages[i].date;
+                };
+            };
         },
         selectedContact: function(i){
             this.contactsIndex = i;
         },
+        addMex: function(i){
+            if(this.inputText != ""){
+                this.contacts[i].messages.push({date: dayjs().format("DD/MM/YYYY HH:mm:ss"), message: this.inputText, status: 'sent'});
+                // Dopo l'aggiunta pulisce l'input text
+                this.inputText = "";
+
+                setTimeout(() => {
+                    this.contacts[i].messages.push({date: dayjs().format("DD/MM/YYYY HH:mm:ss"), message: "ok", status: 'received'});
+                }, 1000);
+            };
+        }
     },
 
 });
+
+// dayjs().format("DD/MM/YYYY HH:mm:ss")
