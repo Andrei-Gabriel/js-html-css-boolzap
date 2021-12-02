@@ -58,7 +58,9 @@
             <!-- Inizio contatti -->
             <div class="contatti">
                 <div class="contatto"
-                     v-for="(elem, index) in contacts">
+                     v-for="(elem, index) in contacts"
+                     @click="selectedContact(index)"
+                     :class="contactsIndex == index ? 'selezionato' : null">
                     <img :src="`img/avatar${contacts[index].avatar}.jpg`">
                     <span>{{contacts[index].name}}</span>
                 </div>
@@ -67,10 +69,10 @@
         <div class="main">
             <div class="contatto-selezionato">
                 <div class="contatto-info">
-                    <img src="img/avatar_1.jpg">
+                    <img :src="`img/avatar${contacts[contactsIndex].avatar}.jpg`">
                     <div class="c-info-text">
-                        <span>Michele</span>
-                        <span class="last-access">Ultimo accesso oggi alle</span>
+                        <span>{{contacts[contactsIndex].name}}</span>
+                        <span class="last-access">Ultimo accesso oggi alle {{contacts[contactsIndex].messages[lastLog(contactsIndex)].date}}</span>
                     </div>
                 </div>
                 <div class="contatto-icons">
@@ -79,10 +81,15 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
             </div>
-            <div class="screen-chat">
-
+            <div id="screen-chat">
+                <div class="mex"
+                     v-for="(elem, i) in contacts[contactsIndex].messages"
+                     :class="elem.status">
+                    <span class="mex-text">{{elem.message}}</span>
+                    <span class="mex-date">{{elem.date}}</span>
+                </div>
             </div>
-            <div class="messaggio">
+            <div class="scrittura">
                 <i class="far fa-smile"></i>
                 <input type="text" placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>

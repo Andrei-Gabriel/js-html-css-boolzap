@@ -83,8 +83,34 @@ const app = new Vue({
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received'
                     },
+                    {
+                        date: '10/01/2020 15:51:00',
+                        message: 'E vorrei sapere perché mi chiamo Luisa anche se sono un uomo',
+                        status: 'received'
+                    },
                 ],
             },
         ],
+        // name: 'Michele',
+        // avatar: '_1',
+        // visible: true,
+        // messages: [
+        //     {
+        //         date: '10/01/2020 15:30:55',
+        //         message: 'Hai portato a spasso il cane?',
+        //         status: 'sent'
+        //     }, q. messages > 1
+        // ],
+        contactsIndex: 0,
     },
+    methods: {
+        lastLog: function(i){
+            return this.contacts[i].messages.length - 1;
+            // Serve per estrarre l'ultimo messaggio ricevuto (Dovrebbe essere corretto perché in ogni caso l'ultimo messaggio sarà ricevuto. Quindi l'ora dell'ultimo messaggio ricevuto == ~ ultimo accesso del contatto)
+        },
+        selectedContact: function(i){
+            this.contactsIndex = i;
+        },
+    },
+
 });
