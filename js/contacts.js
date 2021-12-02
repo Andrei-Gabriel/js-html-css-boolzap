@@ -105,7 +105,9 @@ const app = new Vue({
         inputText: "",
     },
     methods: {
+        // Stampa nel div.contatto-info l'ultimo accesso del contatto
         lastLog: function(j){
+            // Controlla partendo dall'ultimo elemento se c'è un status received. Quando lo trova ritorna il valore
             for(let i = this.contacts[j].messages.length - 1; i >= 0; i--){
                 if(this.contacts[j].messages[i].status == "received"){
                     return this.contacts[j].messages[i].date;
@@ -115,12 +117,14 @@ const app = new Vue({
         selectedContact: function(i){
             this.contactsIndex = i;
         },
+        // Aggiunge un elemento *all'array messages dentro l'oggetto contacts*
         addMex: function(i){
             if(this.inputText != ""){
                 this.contacts[i].messages.push({date: dayjs().format("DD/MM/YYYY HH:mm:ss"), message: this.inputText, status: 'sent'});
                 // Dopo l'aggiunta pulisce l'input text
                 this.inputText = "";
 
+                // Dopo un secondo aggiunge un elem ** con status received (la data in contatto-info cambierà)
                 setTimeout(() => {
                     this.contacts[i].messages.push({date: dayjs().format("DD/MM/YYYY HH:mm:ss"), message: "ok", status: 'received'});
                 }, 1000);

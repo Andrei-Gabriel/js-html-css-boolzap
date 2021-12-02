@@ -66,7 +66,11 @@
                 </div>
             </div>
         </div>
+
+        <!-- Inizio main -->
         <div class="main">
+
+            <!-- Inizio contatto-selezionato -->
             <div class="contatto-selezionato">
                 <div class="contatto-info">
                     <img :src="`img/avatar${contacts[contactsIndex].avatar}.jpg`">
@@ -81,6 +85,8 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
             </div>
+
+            <!-- Inizio screen-chat -->
             <div id="screen-chat">
                 <div class="mex"
                      v-for="(elem, i) in contacts[contactsIndex].messages"
@@ -89,6 +95,8 @@
                     <span class="mex-date">{{elem.date}}</span>
                 </div>
             </div>
+
+            <!-- Inizio scrittura -->
             <div class="scrittura">
                 <i class="far fa-smile"></i>
                 <input type="text" 
