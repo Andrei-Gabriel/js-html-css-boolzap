@@ -131,12 +131,14 @@ const app = new Vue({
                 }, 1000);
             };
         },
-        searchContact: function(){
+        searchContact: function(text){
             // Cerca in contacts se il valore name == searchContactText
-            for(let i = 0; i < this.contacts.length; i++){
-                if(this.searchContactText == this.contacts[i].name){
-                    this.contactsIndex = i;
-                    this.searchContactText = "";
+            if(text != ""){
+                for(let i = 0; i < this.contacts.length; i++){
+                    if(text == this.contacts[i].name){
+                        this.contactsIndex = i;
+                        this.searchContactText = "";
+                    }
                 }
             }
         },

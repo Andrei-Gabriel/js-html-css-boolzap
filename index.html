@@ -51,12 +51,13 @@
 
             <!-- Inizio search-bar -->
             <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" 
+                <i class="fas fa-search"
+                   @click="searchContact(searchContactText)"></i>
+                <input type="text"
                        placeholder="Cerca o inizia una nuova chat" 
                        list="lista-contatti"
                        v-model="searchContactText"
-                       @keyup.enter="searchContact()">
+                       @keyup.enter="searchContact(searchContactText)">
                 <datalist id="lista-contatti">
                     <option v-for="(elem, index) in contacts" 
                             :value="`${elem.name}`">
