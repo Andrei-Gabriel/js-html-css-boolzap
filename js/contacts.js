@@ -102,6 +102,7 @@ const app = new Vue({
         //     }, q. messages > 1
         // ],
         contactsIndex: 0,
+        searchContactText: "",
         inputText: "",
     },
     methods: {
@@ -129,7 +130,16 @@ const app = new Vue({
                     this.contacts[i].messages.push({date: dayjs().format("DD/MM/YYYY HH:mm:ss"), message: "ok", status: 'received'});
                 }, 1000);
             };
-        }
+        },
+        searchContact: function(){
+            // Cerca in contacts se il valore name == searchContactText
+            for(let i = 0; i < this.contacts.length; i++){
+                if(this.searchContactText == this.contacts[i].name){
+                    this.contactsIndex = i;
+                    this.searchContactText = "";
+                }
+            }
+        },
     },
 
 });

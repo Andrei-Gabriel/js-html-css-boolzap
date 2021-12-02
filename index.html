@@ -52,7 +52,15 @@
             <!-- Inizio search-bar -->
             <div class="search-bar">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" 
+                       placeholder="Cerca o inizia una nuova chat" 
+                       list="lista-contatti"
+                       v-model="searchContactText"
+                       @keyup.enter="searchContact()">
+                <datalist id="lista-contatti">
+                    <option v-for="(elem, index) in contacts" 
+                            :value="`${elem.name}`">
+                </datalist>
             </div>
 
             <!-- Inizio contatti -->
@@ -61,7 +69,7 @@
                      v-for="(elem, index) in contacts"
                      @click="selectedContact(index)"
                      :class="contactsIndex == index ? 'selezionato' : null">
-                    <img :src="`img/avatar${contacts[index].avatar}.jpg`">
+                    <img :src="`img/avatar${elem.avatar}.jpg`">
                     <span>{{contacts[index].name}}</span>
                 </div>
             </div>
